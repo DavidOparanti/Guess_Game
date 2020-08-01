@@ -1,15 +1,16 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
     private static String luckyMovie;
-    private static String output = "";
+    private static ArrayList<String> output = new ArrayList<>();
 
 
     public static int generateRandomNumber(int maxExclusive) {
-        int number = (int) (Math.random() * maxExclusive);
-        return number;
+        return (int) (Math.random() * maxExclusive);
+
     }
 
 
@@ -26,12 +27,18 @@ public class Game {
             luckyMovie = movie;
 
             for(int i = 0; i < movie.length(); i++) {
-                output +=  "*";
+                Game.output.add("*");
             }
             System.out.println();
         }
     }
-
+    public static String printArrayList(ArrayList<String> arrayList) {
+        StringBuilder output = new StringBuilder();
+        for(Object ar : arrayList) {
+            output.append(ar);
+        }
+        return output.toString();
+    }
 
     public static void main(String[] args) throws FileNotFoundException {
        Game.displayRandomGame();
@@ -40,6 +47,7 @@ public class Game {
 
        Scanner sc = new Scanner(System.in);
        System.out.println("State your Guess");
+       System.out.println(Game.output);
        String input = sc.next();
        int guess = luckyMovie.length();
        while (guess > 0) {
