@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Game {
     private static String luckyMovie;
+    private static String output = "";
 
 
     public static int generateRandomNumber(int maxExclusive) {
@@ -25,7 +26,7 @@ public class Game {
             luckyMovie = movie;
 
             for(int i = 0; i < movie.length(); i++) {
-                System.out.print("*");
+                output +=  "*";
             }
             System.out.println();
         }
@@ -45,10 +46,14 @@ public class Game {
 
            if(movie.indexOf(input) < 0) {
                System.out.println("Wrong guess. Try more you have " + guess + " left");
+               System.out.println(Game.output);
                input = sc.next();
            } else {
+
                System.out.println("good");
+               System.out.println(Game.output);
                System.out.println(movie.indexOf(input));
+
            }
            guess--;
        }
