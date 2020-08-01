@@ -14,6 +14,7 @@ public class Game {
     }
 
 
+
     public static void displayRandomGame() throws FileNotFoundException {
         File file = new File("movies.txt");
         Scanner sc = new Scanner((file));
@@ -32,6 +33,8 @@ public class Game {
             System.out.println();
         }
     }
+
+
     public static String printArrayList(ArrayList<String> arrayList) {
         StringBuilder output = new StringBuilder();
         for(Object ar : arrayList) {
@@ -40,6 +43,7 @@ public class Game {
         return output.toString();
     }
 
+
     public static void main(String[] args) throws FileNotFoundException {
        Game.displayRandomGame();
        String movie = Game.luckyMovie;
@@ -47,7 +51,8 @@ public class Game {
 
        Scanner sc = new Scanner(System.in);
        System.out.println("State your Guess");
-       System.out.println(Game.output);
+
+       System.out.println(printArrayList(Game.output));
        String input = sc.next();
        int guess = luckyMovie.length();
        while (guess > 0) {
@@ -59,7 +64,7 @@ public class Game {
            } else {
 
                System.out.println("good");
-               System.out.println(Game.output);
+               //System.out.println(printArrayList(Game.output));
                System.out.println(movie.indexOf(input));
 
            }
