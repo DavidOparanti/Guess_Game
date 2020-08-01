@@ -1,13 +1,12 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Game {
     private static String luckyMovie;
     private static int size;
-    private static String[] output = new String[size];
+    private static ArrayList<String> output = new ArrayList<>();
 
 
     public static int generateRandomNumber(int maxExclusive) {
@@ -31,7 +30,7 @@ public class Game {
             luckyMovie = movie;
 
             for(int i = 0; i < movie.length(); i++) {
-                Game.output[i] = "*";
+                Game.output.add("*");
             }
             System.out.println();
         }
@@ -55,7 +54,7 @@ public class Game {
        Scanner sc = new Scanner(System.in);
        System.out.println("State your Guess");
 
-       System.out.println(Arrays.toString(Game.output));
+       System.out.println(printArrayList(Game.output));
        String input = sc.next();
        int guess = luckyMovie.length();
 
@@ -63,16 +62,16 @@ public class Game {
 
            if(movie.indexOf(input) < 0) {
                System.out.println("Wrong guess. Try more you have " + guess + " left");
-               System.out.println(Arrays.toString(Game.output));
+               System.out.println(printArrayList(Game.output));
                input = sc.next();
            } else {
                //System.out.println("good");
               for(int i = 0; i < Game.luckyMovie.length(); i++) {
                   if(Game.luckyMovie.equals(input)) {
-                      Game.output[i] = input;
+                      Game.output.set(i, "a");
                   }
               }
-               System.out.println(Arrays.toString(Game.output));
+               System.out.println(printArrayList(Game.output));
                input = sc.next();
 
 
