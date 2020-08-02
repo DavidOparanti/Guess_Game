@@ -66,14 +66,16 @@ public class Game {
                input = sc.next();
            } else {
                //System.out.println("good");
+               //int index = 0;
               for(int i = 0; i < Game.luckyMovie.length(); i++) {
-                  if(Game.luckyMovie.equals(input)) {
-                      Game.output.set(i, "a");
+                  //index++;
+                  if(Game.luckyMovie.contains(input)) {
+                      Game.output.set(i, input);
+                      continue;
                   }
               }
                System.out.println(printArrayList(Game.output));
                input = sc.next();
-
 
            }
            guess--;
