@@ -60,24 +60,24 @@ public class Game {
 
        while (guess > 0) {
 
-           if(movie.indexOf(input) < 0) {
+           if(!movie.contains(input)) {
                System.out.println("Wrong guess. Try more you have " + guess + " left");
-               System.out.println(printArrayList(Game.output));
-               input = sc.next();
            } else {
-               //System.out.println("good");
-               //int index = 0;
               for(int i = 0; i < Game.luckyMovie.length(); i++) {
                   //index++;
                   if(Game.luckyMovie.contains(input)) {
-                      Game.output.set(i, input);
-                      continue;
+                      for(int j = 0; j < output.size(); j++) {
+                          if(output.get(j).equals(input)){
+                              output.set(j, input);
+                          }
+                      }
+
                   }
               }
-               System.out.println(printArrayList(Game.output));
-               input = sc.next();
 
            }
+           System.out.println(printArrayList(Game.output));
+           input = sc.next();
            guess--;
        }
 
